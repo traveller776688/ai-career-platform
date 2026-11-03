@@ -2999,8 +2999,12 @@ APP.registerPage('report', {
     });
     sec.querySelector('#rp-reset').addEventListener('click', async () => {
       if (await APP.confirm('将清空测评/学历/路线图/打卡等全部本地数据,不可恢复。确定?', true)) {
-        Object.keys(localStorage).filter(k => k.indexOf('aipc_') === 0).forEach(k => localStorage.removeItem(k));
-        APP.toast('已清空全部数据,重新开始吧 🚀', 'success');
+        try {
+          Object.keys(localStorage).filter(k => k.indexOf('aipc_') === 0).forEach(k => localStorage.removeItem(k));
+          APP.toast('已清空全部数据,重新开始吧 🚀', 'success');
+        } catch (e) {
+          APP.toast('当前环境不支持本地存储,无法清空', 'warn');
+        }
         APP.go('dashboard');
         APP.updateBadges();
       }
