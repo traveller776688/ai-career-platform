@@ -4,3 +4,4 @@
 
 - 在线演示:https://traveller776688.github.io/ai-career-platform/
 - 纯静态,离线可用;行情为仿真引擎(可接真实API);数据保存在访问者自己的浏览器中
+- 本仓库只含**单个 index.html**(全部 JS 与 ECharts 已内联,共 8 页);源工程在 D:\Desktop\AI专业生涯规划,改动后双击 **一键发布.bat** 即可重新打包并推送,GitHub Pages 约 1 分钟自动更新
